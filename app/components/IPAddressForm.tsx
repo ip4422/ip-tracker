@@ -23,7 +23,7 @@ const IPAddressForm = ({ onSearch, isLoading }: IPAddressFormProps) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search for any IP address or domain"
-        className="flex-grow py-3 px-4 outline-none text-gray-700"
+        className="flex-grow py-3 px-4 outline-none text-gray-700 cursor-pointer"
         aria-label="IP Address or Domain"
       />
       <button
