@@ -1,18 +1,32 @@
 import { useEffect, useState } from 'react'
-import type { MapContainerProps } from 'react-leaflet'
+import type {
+  MapContainerProps,
+  TileLayerProps,
+  MarkerProps,
+  PopupProps,
+} from 'react-leaflet'
+import type { LatLngExpression } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import { IPData } from '~/types/ip-data'
 
 interface MapProps {
-  center: [number, number]
+  data: IPData
   zoom?: number
 }
 
-const Map: React.FC<MapProps> = ({ center, zoom = 13 }) => {
+interface CustomMapContainerProps extends MapContainerProps {
+  center: LatLngExpression | undefined
+  zoom: number | undefined
+}
+
+const Map: React.FC<MapProps> = ({ data, zoom = 13 }) => {
+  const center: [number, number] = [data?.location?.lat, data?.location?.lng]
+
   const [LeafletComponents, setLeafletComponents] = useState<{
-    MapContainer: React.ComponentType<MapContainerProps>
-    TileLayer: React.ComponentType<any>
-    Marker: React.ComponentType<any>
-    Popup: React.ComponentType<any>
+    MapContainer: React.ComponentType<CustomMapContainerProps>
+    TileLayer: React.ComponentType<TileLayerProps>
+    Marker: React.ComponentType<MarkerProps>
+    Popup: React.ComponentType<PopupProps>
   } | null>(null)
 
   useEffect(() => {
