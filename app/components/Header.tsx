@@ -9,9 +9,14 @@ interface HeaderProps {
   isLoading: boolean
 }
 
+// to prevent the info changing top position while not initialized with real value
+// because initially it was 0 and it was changing position while not initialized 
+// with real value
+const DEFAULT_INFO_TOP = 152
+
 const Header = ({ onSearch, data, isLoading }: HeaderProps) => {
   const formRef = useRef<HTMLDivElement>(null)
-  const [infoTop, setInfoTop] = useState(0)
+  const [infoTop, setInfoTop] = useState(DEFAULT_INFO_TOP)
 
   useEffect(() => {
     if (formRef.current) {
