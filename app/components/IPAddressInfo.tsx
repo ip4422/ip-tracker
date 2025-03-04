@@ -16,7 +16,7 @@ const IPAddressInfo = ({ data, isLoading }: IPAddressInfoProps) => {
         </div>
       ) : data ? (
         <div className="w-full flex flex-col md:flex-row text-center md:text-left gap-x-6">
-          <div className="w-full md:flex-1 px-6 md:border-r md:border-gray-300">
+          <div className="w-full md:flex-1 px-6 md:border-r md:border-gray-300 pt-6">
             <h2 className="text-xs text-gray-500 uppercase tracking-wider font-bold mb-1">
               IP Address
             </h2>
@@ -25,7 +25,7 @@ const IPAddressInfo = ({ data, isLoading }: IPAddressInfoProps) => {
             </p>
           </div>
 
-          <div className="w-full md:flex-1 px-6 md:border-r md:border-gray-300 sm:pt-6">
+          <div className="w-full md:flex-1 px-6 md:border-r md:border-gray-300 pt-6">
             <h2 className="text-xs text-gray-500 uppercase tracking-wider font-bold mb-1">
               Location
             </h2>
@@ -36,7 +36,7 @@ const IPAddressInfo = ({ data, isLoading }: IPAddressInfoProps) => {
             </p>
           </div>
 
-          <div className="w-full md:flex-1 px-6 md:border-r md:border-gray-300 sm:pt-6">
+          <div className="w-full md:flex-1 px-6 md:border-r md:border-gray-300 pt-6">
             <h2 className="text-xs text-gray-500 uppercase tracking-wider font-bold mb-1">
               Timezone
             </h2>
@@ -45,7 +45,7 @@ const IPAddressInfo = ({ data, isLoading }: IPAddressInfoProps) => {
             </p>
           </div>
 
-          <div className="w-full md:flex-1 px-6 sm:pt-6">
+          <div className="w-full md:flex-1 px-6 pt-6">
             <h2 className="text-xs text-gray-500 uppercase tracking-wider font-bold mb-1">
               ISP
             </h2>
