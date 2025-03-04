@@ -11,3 +11,8 @@ export interface IPData {
   }
   isp: string
 }
+
+export interface IPLookupError {
+  error: string
+  status: number
+}

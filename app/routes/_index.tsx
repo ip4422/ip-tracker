@@ -16,7 +16,7 @@ export const meta: MetaFunction = () => {
 }
 
 export default function Index() {
-  const [currentIPData, setCurrentIPData] = useState<IPData | null>(null)
+  const [currentIPData, setCurrentIPData] = useState<IPData>()
   const navigation = useNavigation()
   const fetcher = useFetcher()
 
@@ -32,7 +32,7 @@ export default function Index() {
     if (!currentIPData) {
       fetcher.load('/api/ip-lookup')
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -47,7 +47,11 @@ export default function Index() {
 
   return (
     <main className="flex flex-col min-h-screen">
-      <Header onSearch={handleSearch} isLoading={isLoading} />
+      <Header
+        data={currentIPData}
+        onSearch={handleSearch}
+        isLoading={isLoading}
+      />
 
       <div className="flex-grow relative">
         {currentIPData ? (
