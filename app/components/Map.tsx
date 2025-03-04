@@ -6,11 +6,13 @@ import type {
   PopupProps,
 } from 'react-leaflet'
 import type { LatLngExpression } from 'leaflet'
-import 'leaflet/dist/leaflet.css'
 import { IPData } from '~/types/ip-data'
+import { DEFAULT_IP_DATA } from '~/utils/default-ip-data'
+
+import 'leaflet/dist/leaflet.css'
 
 interface MapProps {
-  data: IPData
+  data?: IPData
   zoom?: number
 }
 
@@ -19,8 +21,13 @@ interface CustomMapContainerProps extends MapContainerProps {
   zoom: number | undefined
 }
 
-const Map: React.FC<MapProps> = ({ data, zoom = 13 }) => {
-  const center: [number, number] = [data?.location?.lat, data?.location?.lng]
+const Map = ({ data, zoom = 13 }: MapProps) => {
+  // Use default data if no data is provided
+  const mapData = data || DEFAULT_IP_DATA
+  const center: [number, number] = [
+    mapData?.location?.lat,
+    mapData?.location?.lng,
+  ]
 
   const [LeafletComponents, setLeafletComponents] = useState<{
     MapContainer: React.ComponentType<CustomMapContainerProps>
@@ -53,6 +60,7 @@ const Map: React.FC<MapProps> = ({ data, zoom = 13 }) => {
   return (
     <div className="absolute inset-0 w-full h-full z-0">
       <MapContainer
+        location={data?.location}
         center={center}
         zoom={zoom}
         className="w-full h-full"
