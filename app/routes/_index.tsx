@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Header from '~/components/Header'
-import IPAddressInfo from '~/components/IPAddressInfo'
+import Map from '~/components/Map'
 import { IPData } from '~/types/ip-data'
 
 export default function Index() {
@@ -21,11 +21,10 @@ export default function Index() {
     <main className="flex flex-col min-h-screen">
       <Header onSearch={handleSearch} isLoading={isLoading} />
 
-      <div className="px-6">
-        <IPAddressInfo data={currentIPData} isLoading={isLoading} />
+      <div className="flex-grow relative">
+        <Map center={[51.505, -0.09]} zoom={20} />
+        {/* <Map data={currentIPData} zoom={20}/> */}
       </div>
-
-      <div>Map</div>
     </main>
   )
 }

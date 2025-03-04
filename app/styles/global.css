@@ -1,0 +1,11 @@
+@media (max-width: 640px) {
+  header {
+    background-image: url('/images/pattern-bg-mobile.png');
+  }
+}
+
+@media (min-width: 640px) {
+  header {
+    background-image: url('/images/pattern-bg-desktop.png');
+  }
+}

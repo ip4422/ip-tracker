@@ -7,7 +7,7 @@ interface IPAddressInfoProps {
 
 const IPAddressInfo = ({ data, isLoading }: IPAddressInfoProps) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 lg:p-8 max-w-6xl mx-auto -mt-16 relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center md:text-left">
+    <div className="min-w-[80%] bg-white rounded-lg shadow-md p-6 lg:p-8 max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center md:text-left">
       {isLoading ? (
         <div className="col-span-full text-center py-4">
           <div className="animate-pulse flex justify-center">
